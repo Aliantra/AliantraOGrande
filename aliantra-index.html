@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#071b2b">
+<meta name="description" content="Aliantra — Há sempre outro caminho a descobrir.">
+<title>Aliantra</title>
+<link rel="preload" as="image" href="./aliantra-ceu.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lavishly+Yours&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --night:#071b2b;
+  --night-soft:#0b2638;
+  --night-light:#103448;
+  --gold:#e8c17a;
+  --gold-bright:#f5d99c;
+  --cream:#e8dfc9;
+  --rose:#b96f59;
+  --turquoise:#73aeb0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden}
+.site-header{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:20px clamp(20px,5vw,76px);gap:12px}
+.site-header a{color:#eee3ce;text-decoration:none;text-shadow:0 1px 12px #071b2b;font-size:clamp(19px,2.2vw,28px)}
+.site-header nav{display:flex;gap:clamp(14px,3vw,32px)}
+.site-header nav a{font-size:clamp(12px,1.3vw,15px);letter-spacing:.21em}
+.hero{position:relative;isolation:isolate;min-height:100svh;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#061522}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 46% 44% at 50% 50%,rgba(4,16,28,.58),rgba(4,16,28,.2) 56%,transparent)}
+/* Constelações: estrelas pontuais e ligações finas, sem letras flutuantes. */
+.constellation-sky{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;contain:layout paint}
+.constellation{position:absolute;width:clamp(90px,14vw,190px);height:auto;overflow:visible;opacity:0;animation:constellationAppear var(--duration,12s) ease-in-out var(--delay,0s) infinite}
+.constellation path{fill:none;stroke:rgba(238,204,139,.62);stroke-width:.75;stroke-dasharray:2 4}
+.constellation circle{fill:#ffe9b5;filter:drop-shadow(0 0 3px #f6d48f) drop-shadow(0 0 8px #e9b85d)}
+.constellation .dim{fill:#b8d3d0;filter:drop-shadow(0 0 4px #8fc4c3)}
+@keyframes constellationAppear{0%,12%{opacity:0;transform:translateY(5px)}35%,65%{opacity:.82;transform:translateY(0)}90%,100%{opacity:0;transform:translateY(-5px)}}
+.hero-content{position:relative;z-index:3;width:min(100%,1100px);text-align:center;padding:100px 12px 110px;pointer-events:none}
+.hero-content::before{content:"";position:absolute;inset:10% 4%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at center,rgba(4,17,29,.72) 0%,rgba(4,17,29,.45) 38%,rgba(4,17,29,.14) 63%,transparent 78%)}
+.eyebrow{color:#e8d2a9;font-size:clamp(12px,1.45vw,19px);letter-spacing:clamp(.16em,.5vw,.34em);text-align:center;text-shadow:0 2px 7px #000,0 0 17px #000;white-space:nowrap}
+.hero h1{font-family:'Lavishly Yours',cursive;font-weight:400;font-style:normal;font-size:clamp(110px,18vw,240px);letter-spacing:0;line-height:1.35;margin:0;padding:.13em .15em .22em;overflow:visible;white-space:nowrap;background:linear-gradient(158deg,#f7e2b4 5%,#e8c17a 28%,#b77e50 52%,#f2d49a 75%,#b68b57 95%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px #e8c17a55) drop-shadow(0 0 24px #d69b5636);animation:titleIn 1.2s both}
+.ornament{font-size:clamp(20px,3vw,33px);color:var(--gold-bright);text-shadow:0 0 12px #e8c17a8c;line-height:1;margin:5px auto 12px}
+.tagline{font-size:clamp(17px,2vw,25px);font-style:italic;font-weight:400;margin:0;color:#eee5d1;text-shadow:0 2px 7px #000,0 0 17px #000}
+.scroll{position:absolute;z-index:4;bottom:clamp(24px,5vh,65px);left:50%;transform:translateX(-50%);color:var(--gold-bright);text-decoration:none;font-size:30px;text-shadow:0 0 14px #e8c17a77;animation:scrollFloat 3s ease-in-out infinite}
+section{padding:clamp(85px,11vw,145px) clamp(24px,10vw,170px);border-top:1px solid #d6b77a40;background:var(--night)}
+section:nth-of-type(even){background:var(--night-soft)}
+.kicker{color:var(--gold);letter-spacing:.25em;font-size:clamp(13px,1.6vw,19px)}
+h2{color:#c6a77a;font-size:clamp(48px,7vw,86px);font-weight:500;font-style:italic;margin:10px 0 24px}
+section p{max-width:780px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(19px,1.55vw,23px);line-height:1.8;text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;letter-spacing:.005em;color:#e8dfd1}
+footer{text-align:center;padding:32px 24px;color:#d7c8a8;font-family:Georgia,'Times New Roman',serif;font-size:clamp(15px,1.5vw,18px);line-height:1.6}
+@keyframes titleIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollFloat{50%{transform:translate(-50%,7px)}}
+
+/* História: mesma composição editorial do Augure, com brisas nas margens. */
+#historia{padding:clamp(75px,10vw,135px) clamp(22px,6vw,100px);background:var(--night);position:relative;isolation:isolate}
+.story-intro{text-align:center;max-width:790px;margin:0 auto clamp(70px,10vw,115px);position:relative;z-index:1}
+.story-intro h2{font-size:clamp(43px,7vw,78px);line-height:1.05;text-wrap:balance}
+.story-flourish{color:var(--gold);font-size:26px;opacity:.85}
+.story-chapter{max-width:780px;margin:0 auto;padding:0 0 clamp(72px,9vw,110px);position:relative;z-index:1}
+.story-chapter+.story-chapter{padding-top:clamp(66px,8vw,100px);border-top:1px solid rgba(232,193,122,.24)}
+.story-number{display:block;color:#e8c98f;letter-spacing:.25em;font:500 clamp(12px,1.3vw,15px)/1.5 Georgia,serif;margin-bottom:12px;text-align:left}
+.story-chapter h3{display:flex;align-items:center;gap:20px;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,4vw,43px);font-style:normal;font-weight:600;color:#d9c39b;line-height:1.08;margin:0 0 clamp(35px,5vw,55px);text-wrap:balance}
+.story-chapter h3::after{content:'';height:1px;min-width:20px;flex:1;background:linear-gradient(90deg,rgba(232,193,122,.55),transparent)}
+.story-chapter p{max-width:100%;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.8;text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;letter-spacing:.005em;margin:0 0 1.3em;color:#e8dfd1;overflow-wrap:break-word}
+.story-chapter p:last-child{margin-bottom:0}
+.story-chapter p.story-ending{hyphens:manual;-webkit-hyphens:manual;color:#e8c98f;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2.3vw,27px);font-style:italic;font-weight:500;text-align:center;line-height:1.5;margin-top:2em}
+.story-chapter:first-of-type p:first-of-type::first-letter{float:left;font-family:'Cormorant Garamond',Georgia,serif;font-size:5.3em;font-weight:600;line-height:.73;padding:.12em .12em 0 0;color:#e8c17a;text-shadow:1px 1px 0 #8f6747,0 0 18px rgba(232,193,122,.17)}
+/* Linhas de vento discretas que atravessam as margens do texto. */
+.wind-margins{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:layout paint}
+.wind-stroke{position:absolute;width:clamp(65px,10vw,145px);height:28px;border-top:1px solid rgba(130,190,190,.48);border-radius:50%;transform:rotate(var(--angle));opacity:0;filter:drop-shadow(0 0 4px rgba(115,174,176,.35));animation:windDrift var(--duration) ease-in-out var(--delay) infinite}
+.wind-stroke::after{content:"";position:absolute;left:18%;top:5px;width:72%;height:17px;border-top:1px solid rgba(232,193,122,.32);border-radius:50%}
+@keyframes windDrift{0%,15%{opacity:0;translate:-10px 8px}40%,65%{opacity:.72;translate:5px -3px}90%,100%{opacity:0;translate:18px -10px}}
+#historia .story-intro,#historia .story-chapter{position:relative}
+@media(max-width:700px),(pointer:coarse){
+ .constellation:nth-child(n+4){display:none}
+ .site-header{padding:15px 19px}
+ .hero-content{padding:90px 0 80px}
+ .hero h1{font-size:clamp(67px,19vw,130px);padding:.18em .08em .25em}
+ .eyebrow{font-size:clamp(11px,2.8vw,13px);letter-spacing:.17em}
+ .tagline{font-size:clamp(17px,4.3vw,21px)}
+ .hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(4,16,28,.62),transparent)}
+ .hero-content::before{inset:12% 0;background:radial-gradient(ellipse at center,rgba(4,17,29,.78),rgba(4,17,29,.38) 55%,transparent 80%)}
+ section p{font-size:17px;line-height:1.7}
+ #historia{padding:75px 23px}
+ .story-intro{margin-bottom:70px}
+ .story-chapter h3{font-size:clamp(31px,7.6vw,39px);gap:12px}
+ .story-chapter p{font-size:17px;line-height:1.7}
+ .story-chapter:first-of-type p:first-of-type::first-letter{font-size:4.7em;padding-top:.14em}
+ .story-number{font-size:12px}
+ .wind-stroke{opacity:.45}
+}
+@media(max-width:360px){.story-chapter h3{font-size:30px}.story-chapter p,section p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}.constellation{opacity:.45}}
+</style>
+</head>
+
+<body>
+<header class="site-header">
+  <a href="#inicio">Aliantra</a>
+  <nav><a href="#historia">HISTÓRIA</a><a href="#ficha">FICHA</a></nav>
+</header>
+
+<main>
+  <div class="hero" id="inicio">
+    <img class="hero-bg" src="./aliantra-ceu.webp" alt="" fetchpriority="high" decoding="async">
+    <div class="constellation-sky" id="constellation-sky" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="ornament" aria-hidden="true">✧</div>
+      <div class="eyebrow">VIATOR ✦ LIBERTAS</div>
+      <h1>Aliantra</h1>
+      <div class="ornament" aria-hidden="true">✧</div>
+      <p class="tagline">Há sempre outro caminho a descobrir.</p>
+    </div>
+    <a class="scroll" href="#historia" aria-label="Ir para a história">⌄</a>
+  </div>
+
+  <section id="historia" aria-labelledby="historia-titulo">
+    <div class="wind-margins" id="wind-margins" aria-hidden="true"></div>
+    <div class="story-intro">
+      <div class="kicker">I · RELATOS DE VIAGEM</div>
+      <h2 id="historia-titulo">Onde os Caminhos se Encontram</h2>
+      <div class="story-flourish" aria-hidden="true">✧</div>
+    </div>
+
+    <article class="story-chapter" aria-labelledby="capitulo-1">
+      <span class="story-number">CAPÍTULO I</span>
+      <h3 id="capitulo-1">O Primeiro Horizonte</h3>
+      <p>Este espaço será preenchido com o início da trajetória de Aliantra.</p>
+      <p>O texto pode seguir a mesma diagramação do Augure: parágrafos contínuos, uma capitular no primeiro parágrafo e pequenos detalhes ornamentais nas margens.</p>
+    </article>
+
+    <article class="story-chapter" aria-labelledby="capitulo-2">
+      <span class="story-number">CAPÍTULO II</span>
+      <h3 id="capitulo-2">Sob Outros Céus</h3>
+      <p>Este capítulo poderá reunir os encontros, as descobertas e os lugares que marcaram sua jornada.</p>
+    </article>
+
+    <article class="story-chapter" aria-labelledby="capitulo-3">
+      <span class="story-number">CAPÍTULO III</span>
+      <h3 id="capitulo-3">A Liberdade do Vento</h3>
+      <p>Um espaço para os acontecimentos que aproximaram Aliantra de Shaq-Tir al-Sirr e transformaram a relação entre patrono e protegido em amizade.</p>
+      <p class="story-ending">E enquanto houver estrada, haverá uma história por contar.</p>
+    </article>
+  </section>
+
+  <section id="ficha">
+    <div class="kicker">II · VIAJANTE: A JORNADA</div>
+    <h2>O Grimório</h2>
+    <p>A ficha de Aliantra será colocada aqui, preservando a apresentação e a organização visual do site original.</p>
+  </section>
+</main>
+
+<footer>Aliantra · Há sempre outro caminho a descobrir.</footer>
+
+<script>
+/* Pequenos mapas estelares: constelações reconhecíveis, não letras aleatórias. */
+(()=>{
+  'use strict';
+  const sky=document.getElementById('constellation-sky');
+  const patterns=[
+    {name:'Orion',points:[[8,12],[31,24],[52,10],[42,48],[63,52],[78,35],[91,12]],lines:[[0,1],[1,2],[1,3],[3,4],[4,5],[5,6]]},
+    {name:'Cassiopeia',points:[[8,55],[28,18],[49,51],[70,18],[92,54]],lines:[[0,1],[1,2],[2,3],[3,4]]},
+    {name:'Ursa Minor',points:[[10,12],[35,22],[57,39],[75,26],[88,50],[70,76],[48,82]],lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]]},
+    {name:'Scorpius',points:[[8,15],[28,30],[46,28],[61,48],[76,60],[90,82],[74,91]],lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]]}
+  ];
+  patterns.forEach((pattern,index)=>{
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 100 100');
+    svg.setAttribute('class','constellation');
+    svg.setAttribute('role','img');
+    svg.setAttribute('aria-label','Constelação '+pattern.name);
+    const positions=[
+      ['5%','12%','-12deg'],['77%','18%','9deg'],['10%','73%','5deg'],['75%','70%','-8deg']
+    ][index];
+    svg.style.left=positions[0];svg.style.top=positions[1];svg.style.setProperty('--angle',positions[2]);
+    svg.style.setProperty('--duration',(13+index*2)+'s');
+    svg.style.setProperty('--delay',(-index*3)+'s');
+    const lines=document.createElementNS(svg.namespaceURI,'path');
+    lines.setAttribute('d',pattern.lines.map(([a,b])=>{
+      const p=pattern.points[a],q=pattern.points[b];return `M${p[0]} ${p[1]} L${q[0]} ${q[1]}`;
+    }).join(' '));
+    svg.appendChild(lines);
+    pattern.points.forEach((point,i)=>{
+      const circle=document.createElementNS(svg.namespaceURI,'circle');
+      circle.setAttribute('cx',point[0]);circle.setAttribute('cy',point[1]);
+      circle.setAttribute('r',i%3===0?'1.8':'1.2');
+      if(i%3===1)circle.setAttribute('class','dim');
+      svg.appendChild(circle);
+    });
+    sky.appendChild(svg);
+  });
+})();
+
+/* Brisas discretas nas margens dos capítulos. */
+(()=>{
+  'use strict';
+  const area=document.getElementById('wind-margins');
+  if(!area)return;
+  const fragment=document.createDocumentFragment();
+  const count=Math.max(24,Math.min(64,Math.ceil(area.parentElement.scrollHeight/95)));
+  for(let i=0;i<count;i++){
+    const stroke=document.createElement('span');
+    stroke.className='wind-stroke';
+    const left=i%2===0;
+    stroke.style.left=(left?1+Math.random()*11:88+Math.random()*10)+'%';
+    stroke.style.top=(Math.random()*98)+'%';
+    stroke.style.setProperty('--angle',(-22+Math.random()*44)+'deg');
+    stroke.style.setProperty('--duration',(9+Math.random()*9)+'s');
+    stroke.style.setProperty('--delay',(-Math.random()*15)+'s');
+    fragment.appendChild(stroke);
+  }
+  area.appendChild(fragment);
+})();
+</script>
+</body>
+</html>
